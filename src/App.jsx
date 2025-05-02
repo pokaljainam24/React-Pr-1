@@ -13,8 +13,17 @@ function App() {
     localStorage.setItem('count', JSON.stringify(count));
   }, [count]);
 
-  const handleIncrement = () => { setCount(count + 1); }
-  const handleDecrement = () => { setCount(count > 0 ? count - 1 : 0); }
+  const handleIncrement = () => {
+    setCount(count + 1);
+  }
+
+  const handleDecrement = () => {
+    setCount(count > 0 ? count - 1 : 0);
+  }
+
+  const handleReset = () => {
+    setCount(0);
+  }
 
   return (
     <>
@@ -80,12 +89,19 @@ function App() {
               </div>
             </div>
 
-            <div className="mb-4">
+            <div className="mb-2">
               <div className="d-flex align-items-center">
                 <label className="me-2">Quantity:</label>
                 <button className="btn btn-outline-secondary me-2" onClick={handleDecrement}>-</button>
                 <span className="mx-2">{count}</span>
                 <button className="btn btn-outline-secondary ms-2" onClick={handleIncrement}>+</button>
+              </div>
+            </div>
+
+            <div className="mb-2">
+              <div className="d-flex align-items-center">
+                <label className="me-2">Reset:</label>
+                <button className="btn btn-outline-secondary ms-2" onClick={handleReset}>Reset</button>
               </div>
             </div>
 
@@ -96,7 +112,7 @@ function App() {
               </button>
             </div>
 
-            <div className="mt-4">
+            <div className="mt-2">
               <div className="d-flex align-items-center mb-2">
                 <i className="fas fa-truck text-primary me-2"></i>
                 <span>Free shipping on orders over $50</span>
